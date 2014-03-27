@@ -12,10 +12,10 @@ def palindromo(s)
 	end
 		if(normal_string == inverse_string)
 			#return true
-			puts true
+			return true
 		else 
 			#return false
-			puts false
+			return false
 		end	
 end
 

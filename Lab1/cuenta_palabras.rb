@@ -7,7 +7,7 @@ def cuenta_palabras(s)
 			h[s[x]] = 1
 		end
 	end
-	puts h 
+	return h 
 end	
 
 cuenta_palabras("jojojo _ ?Sadoi")
