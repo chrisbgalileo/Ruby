@@ -18,7 +18,7 @@ module RubyModule
 			end	
 	end
 	
-	def cuenta_palabras(s)
+	def cuenta_letras(s)
 		h = Hash.new
 		s.size.times do |x| 
 			if(h.key?(s[x])) 
@@ -26,6 +26,30 @@ module RubyModule
 			else 
 				h[s[x]] = 1
 			end
+		end
+		return h 
+	end
+	
+	def cuenta_palabras(s)
+		h = Hash.new
+		string = ""
+		s.size.times do |x|
+			if(s[x].ord == 32)
+				if(h.key?(string)) 
+					h[string] = h[string] + 1
+				else 
+					h[string] = 1
+				end
+			string = ""
+			else
+				string = string + s[x]
+			end
+			
+		end
+		if(h.key?(string)) 
+			h[string] = h[string] + 1
+		else 
+			h[string] = 1
 		end
 		return h 
 	end
@@ -96,9 +120,9 @@ end
 
 #Test
 #testo = Test.new()
-#puts testo.palindromo("A man, a plan, a canal - Panama")
-#puts testo.cuenta_palabras("jojojo _ ?Sadoi")
+#puts testo.palindromo("A man, a planlala, a canal - Panama")
+#puts testo.cuenta_palabras("jojojo feliz navidad jojojo")
 #testo.hanoi(3,1,2,3)
-#puts testo.sort([1,4,2], false)
-#puts testo.char_count("A man, a plan, a canal - Panama", "a")
+#puts testo.sort([1,4,2,4,6,9], true)
+#puts testo.char_count("A man, a plan, a canal - Panama", "p")
 #puts testo.atoi("12234")

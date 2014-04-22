@@ -1,0 +1,69 @@
+rails new Lab02 
+rake db:create 
+rails g migration db 
+rake db:migrate 
+
+rails g model Team name:string coach:string flag:string uniform:string info:text 
+rails g migration Team 
+rake db:migrate
+
+
+app - model - ..
+belongs_to :equipo_local, :class_name => Team
+
+
+Equipos
+	32 equipos 
+	
+	Pais 
+	Nombre entrenador
+	Bandera (url a imagen)
+	Uniforme (url a imagen)
+	Texto que diga algo del equipo
+
+	class Team < ActiveRecord::Base
+    		# code
+	end
+
+
+Grupos
+	8 Grupos (Del A al H)	
+	4 Equipos
+
+	Nombre del grupo
+
+	class Group < ActiveRecord::Base
+ 		# code
+	end
+
+
+Estadios
+	12 estadios
+
+	Nombre
+	Ciudad
+	Fecha de construccion
+	Capacidad maxima (personas)
+	Foto(url a imagen)
+
+	class Stadium < ActiveRecord::Base
+  		# code
+	end
+
+
+Partidos
+	Fecha del juego
+	Fase(fase de grupos, octavos de final, cuartos de final, semifinales, finales)
+	Estado(por jugar, en juego, finalizado)
+	Equipo local
+	Equipo visitante
+	Marcador(goles del local, goles del visitante)
+	Ganador
+	Perdedor
+	Empate?
+	Grupo
+	Estadio
+
+	class Match < ActiveRecord::Base
+  		# code
+	end

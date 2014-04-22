@@ -15,6 +15,14 @@ class Computer
 		end	
 	end	
 	
+	def rm nombre
+		if (@files.key?(nombre))
+			@files.delete(nombre)
+		else
+			puts "Error archivo no existente"
+		end	
+	end	
+	
 	def ls *hash
 		if (hash[0] != nil)
 			if (hash[0].key?("sort"))
@@ -43,4 +51,5 @@ end
 #computer.create("bachos.rb")
 #computer.create("lala.rb")
 #computer.create("achui.rb")
+#computer.rm("lala.rb")
 #computer.ls(hash)	

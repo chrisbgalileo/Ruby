@@ -90,7 +90,12 @@ class JellyBean < Dessert
 end
 
 #Test
-#postre = JellyBean.new("choco", 100, 200, "blacklicore")
-#postre = JellyBean.new("choco", 100, 200, "blacklicore")
-#postre.to_s
-#puts postre.count
+#postre1 = JellyBean.new("choco", 100, 50, "panqueque")
+#postre2 = JellyBean.new("choco", 100, 201, "black licore")
+#postre1.to_s
+#postre2.to_s
+#puts postre1.delicious?
+#puts postre2.delicious?
+#puts postre1.healthy?
+#puts postre2.healthy?
+#puts postre2.count
