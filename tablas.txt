@@ -12,6 +12,8 @@ app - model - ..
 belongs_to :equipo_local, :class_name => Team
 
 
+/\A( ( [a-z]|[A-Z]|\d|\s )+: \///\/// ( [a-z]|[A-Z]|\d|\s )+ )\z/i
+
 Equipos
 	32 equipos 
 	

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402184632) do
+ActiveRecord::Schema.define(version: 20140514181455) do
 
   create_table "groups", force: true do |t|
     t.string   "name_group"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140402184632) do
     t.string   "score"
     t.integer  "winer_id"
     t.integer  "loser_id"
-    t.boolean  "draw?"
+    t.boolean  "draw"
     t.integer  "group_id"
     t.integer  "stadium_id"
     t.datetime "created_at"
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(version: 20140402184632) do
   add_index "matches", ["stadium_id"], name: "index_matches_on_stadium_id"
   add_index "matches", ["visit_team_id"], name: "index_matches_on_visit_team_id"
   add_index "matches", ["winer_id"], name: "index_matches_on_winer_id"
+
+  create_table "participations", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "group_id"
+    t.integer  "points"
+    t.integer  "matches_played"
+    t.integer  "wins"
+    t.integer  "losses"
+    t.integer  "draws"
+    t.integer  "goals_scored"
+    t.integer  "goals_recived"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "participations", ["group_id"], name: "index_participations_on_group_id"
+  add_index "participations", ["team_id"], name: "index_participations_on_team_id"
 
   create_table "stadia", force: true do |t|
     t.string   "name_stadium"

@@ -1,8 +1,16 @@
 class Team < ActiveRecord::Base
-	validates :name, presence: true, uniqueness: true, format: /\A( ([a-z]|[A-Z]|\s])+ )\z/i 
+	
+	
+	/belongs_to :group/
+	has_one :participations
+	has_one :groups, :through => :participations
+	has_many :matches
+	
+	validates :name, presence: true, uniqueness: true, format: /(([a-z]|\s)+)/i 
 	validates :coach, presence: true, uniqueness: true
-	/Sera un url valido?(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix 
-	validates:flag, presence: true, format: /\A( ([a-z]|[A-Z]|\d|\s)+:([a-z]|[A-Z]|\d|\s)+ )\z/i
-	validates:uniform, presence: true, format: /\A( ([a-z]|[A-Z]|\d|\s)+:([a-z]|[A-Z]|\d|\s)+ )\z/i
-	validates:info, length: {in: 15..200}
+	validates:flag, presence: true, format: URI:: regexp(%w(http https)) 
+	validates:uniform, presence: true, format: URI:: regexp(%w(http https)) 
+	validates:info, presence: true, length: {in: 15..200}
+	
+	
 end
